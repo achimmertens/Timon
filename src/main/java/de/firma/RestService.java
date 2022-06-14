@@ -1,6 +1,7 @@
 package de.firma;
 
 import de.firma.Post;
+import de.firma.JsonRestTemplate;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -27,7 +28,8 @@ public class RestService {
         }
 
         public String getPostsPlainJSON() {
-                String url = "https://jsonplaceholder.typicode.com/posts";
+               // String url = "https://jsonplaceholder.typicode.com/posts";
+                String url = "http://raspi:8080/api/accounts";
                 return this.restTemplate.getForObject(url, String.class);
         }
 
@@ -85,9 +87,9 @@ public class RestService {
 
                 // create a map for post parameters
                 Map<String, Object> map = new HashMap<>();
-                map.put("userId", 1);
-                map.put("title", "Introduction to Spring Boot");
-                map.put("body", "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications.");
+                map.put("id", 27);
+                map.put("name", "Peer Verser");
+                map.put("nickname", "Peerv");
 
                 // build the request
                 HttpEntity<Map<String, Object>> entity = new HttpEntity<>(map, headers);
@@ -104,8 +106,8 @@ public class RestService {
         }
 
         public Post createPostWithObject() {
-                String url = "https://jsonplaceholder.typicode.com/posts";
-
+                //String url = "https://jsonplaceholder.typicode.com/posts";
+                  String url = "http://raspi:8080/api/accounts";
                 // create headers
                 HttpHeaders headers = new HttpHeaders();
                 // set `content-type` header
@@ -114,7 +116,7 @@ public class RestService {
                 headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
                 // create a post object
-                Post post = new Post(1, "Introduction to Spring Boot",
+                Post post = new Post(27, "Peer Verser",
                         "Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications.");
 
                 // build the request

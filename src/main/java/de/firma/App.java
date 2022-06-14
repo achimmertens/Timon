@@ -9,23 +9,24 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 
 @SpringBootApplication
-public class App implements CommandLineRunner {
+public class App //implements CommandLineRunner
+{
 
-    private RestService restService;
+  /*  private RestService restService;
 
     public App(RestService restService) {
         this.restService = restService;
     }
-
+**/
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }
-
+/*
     @Override
     public void run(String... args) throws Exception {
 
         // fetch posts as plain JSON
-		//System.out.println(restService.getPostsPlainJSON());
+		System.out.println(restService.getPostsPlainJSON());
 
         // fetch posts as object
 //		for (Post post: restService.getPostsAsObject()) {
@@ -42,10 +43,10 @@ public class App implements CommandLineRunner {
 //		System.out.println(restService.getPostWithCustomHeaders());
 
         // create a new post
-		System.out.println(restService.createPost());
+		//System.out.println(restService.createPost());
 
         // create a new post with object
-//		System.out.println(restService.createPostWithObject());
+	//	System.out.println(restService.createPostWithObject());
 
         // update post
 //		restService.updatePost();
@@ -66,5 +67,8 @@ public class App implements CommandLineRunner {
 
         // get request with error handling
         System.out.println(restService.unknownRequest());
-    }
+
+        }
+ */
+
 }
